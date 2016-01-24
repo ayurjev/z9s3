@@ -52,7 +52,7 @@ class S3Uploader(object):
         :param file_obj:
         :return:
         """
-        key = "%s%s" % (datetime.now().strftime("%Y%m%d%H%M%S%f"), random.randint(1,10000))
+        key = "%s%s.jpg" % (datetime.now().strftime("%Y%m%d%H%M%S%f"), random.randint(1,10000))
         return self.upload_with_key(key, file_obj)
 
     def upload_with_key(self, key: str, file_obj: BytesIO):

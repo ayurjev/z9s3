@@ -22,7 +22,7 @@ def error_format(func):
         try:
             return func(*args, **kwargs)
         except BaseServiceException as e:
-            return json.dumps({"error": {"code": e.code}})
+            return json.dumps({"error": {"code": e.code, "message": str(e)}})
     return wrapper
 
 
@@ -37,7 +37,7 @@ class Controller(EnviController):
         :param kwargs:
         :return:
         """
-        if request.get_file("file"):
+        if request.get("file", False):
             file_name, file_body = request.get_file("file")
             file_obj = BytesIO(file_body)
         else:

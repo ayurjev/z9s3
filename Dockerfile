@@ -14,7 +14,7 @@ RUN apt-get install -y \
 RUN wget https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tgz && tar zxf Python-3.5.1.tgz && \
     cd Python-3.5.1 && ./configure && make && make install && rm -rf Python-3.5.1 && rm -f Python-3.5.1.tgz
 
-RUN pip3 install git+https://git@github.com/ayurjev/envi.git#egg=envi && \
+RUN pip3 install git+https://git@github.com/ayurjev/envi.git#egg=envi  && \
     pip3 install git+https://git@github.com/ayurjev/suit.git#egg=suit && \
     pip3 install git+https://git@github.com/ayurjev/mapex.git#egg=mapex && \
     pip3 install uwsgi webtest requests
